@@ -5,25 +5,37 @@
 {% block content %}
 
 <section class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
-
     <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">Aprenda tecnologia no seu ritmo.</h1>
-    <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Cursos interativos com quizzes praticos.</p>
 
+    <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Cursos interativos com quizzes praticos.</p>
 </section>
 
-<section>
+<section class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-2xl font-bold text-gray-900 mb-8">Cursos Disponiveis</h2>
 
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for curso in cursos %}
+            <a href="{{ url_for('curso_detalhe', curso_id=curso.id) }}" class="group block h-full">
+                <article class="bg-white border border-gray-100 rounded-2xl p-6 h-full flex flex-col hover:border-brand-200 hover:shadow-lg transition-all duration-300">
 
-    
-    <h2 class="max-w-6">Cursos Disponiveis</h2>
-    
-    {% for curso in cursos%}
-       <div style="border: 1px solid #ccc; padding: 16px; margin: 8px 0;">
-           <h3>{{curso.title}}</h3>
-           <p>{{curso.description}}</p>
-           <small>{{curso.total_lessons}} aulas</small>
-       </div>
-    {% endfor %}
+                    <div class="w-12 h-12 rounded-xl flex items-center mb-4" style="background-color: {{ curso.color }}15; color: {{ curso.color}};">
+                        <i data-lucide="{{ curso.icon }}" class="w-6 h-6"></i>
+                    </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">{{ curso.title }}</h3>
+
+                        <p class="text-sm text-gray-500 mt-1 mb-3 flex-grow">{{ curso.description }}</p>
+
+                        <div class="flex items-center gap-1.5 text-xs text-gray-400 mt-auto pt-2 border-t border-gray-50">
+                            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                            {{ curso.total_lessons }} aulas
+                        </div>
+                
+                </article>
+            </a>
+        {% endfor %}
+    </div>
+
 </section>
 
 {% endblock content %}
