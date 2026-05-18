@@ -1,0 +1,20 @@
+{
+  "tailwindCSS.experimental.configFile": {
+    "apps/landing/tailwind.config.js": "apps/landing/**"
+  },
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "jinja-html": "html",
+    "django-html": "html"
+  },
+  "tailwindCSS.hovers": true,
+  "tailwindCSS.suggestions": true,
+  "tailwindCSS.validate": true,
+  "editor.hover.enabled": "on",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "files.associations": {
+    "**/templates/**/*.html": "html"
+  }
+}

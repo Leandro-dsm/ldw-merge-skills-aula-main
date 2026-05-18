@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}MergeSkills - Cursos Interativos{% endblock %}
+
+{% block content %}
+
+<section class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
+
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">Aprenda tecnologia no seu ritmo.</h1>
+    <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Cursos interativos com quizzes praticos.</p>
+
+</section>
+
+<section>
+
+
+    
+    <h2 class="max-w-6">Cursos Disponiveis</h2>
+    
+    {% for curso in cursos%}
+       <div style="border: 1px solid #ccc; padding: 16px; margin: 8px 0;">
+           <h3>{{curso.title}}</h3>
+           <p>{{curso.description}}</p>
+           <small>{{curso.total_lessons}} aulas</small>
+       </div>
+    {% endfor %}
+</section>
+
+{% endblock content %}

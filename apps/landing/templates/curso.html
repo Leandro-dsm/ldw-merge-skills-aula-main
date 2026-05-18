@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}{{ curso.title }} — MergeSkills{% endblock %}
+{% block description %}{{ curso.description }}{% endblock %}
+
+{% block content %}
+
+<section class="max-w-4xl mx-auto px-6 pt-10">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-400 mb-8">
+        <a href="/" class="hover:text-gray-600 transition-colors">Inicio</a>
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <a href="/#cursos" class="hover:text-gray-600 transition-colors">Cursos</a>
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <span class="text-gray-600">{{ curso.title }}</span>
+    </nav>
+
+    <!-- Info do Curso -->
+    <div class="flex items-start gap-5 mb-10">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0"
+             style="background-color: {{ curso.color }}15; color: {{ curso.color }};">
+            <i data-lucide="{{ curso.icon }}" class="w-8 h-8"></i>
+        </div>
+        <div>
+            <h1 class="text-3xl font-bold text-gray-900">{{ curso.title }}</h1>
+            <p class="text-gray-500 mt-1 leading-relaxed">{{ curso.description }}</p>
+            <div class="flex items-center gap-1.5 text-sm text-gray-400 mt-2">
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+                {{ curso.total_lessons }} aulas
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="max-w-4xl mx-auto border-gray-100">
+
+<!-- Descricao Promocional -->
+<section class="max-w-4xl mx-auto px-6 py-10">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Sobre este curso</h2>
+    <p class="text-gray-500 leading-relaxed mb-6">
+        Este curso faz parte da plataforma MergeSkills e foi projetado para ensinar
+        conceitos de forma progressiva, com licoes teoricas e quizzes praticos que
+        reforcam o aprendizado. Ao concluir todas as licoes, o aluno tera uma
+        base solida para avancar em projetos reais.
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-4 mb-8">
+        <div class="border border-gray-100 rounded-xl p-4 text-center">
+            <div class="flex items-center justify-center text-brand-600 mb-1">
+                <i data-lucide="book-open" class="w-6 h-6"></i>
+            </div>
+            <p class="text-2xl font-bold text-gray-900">{{ curso.total_lessons }}</p>
+            <p class="text-sm text-gray-500 mt-0.5">Aulas</p>
+        </div>
+        <div class="border border-gray-100 rounded-xl p-4 text-center">
+            <div class="flex items-center justify-center text-brand-600 mb-1">
+                <i data-lucide="save" class="w-6 h-6"></i>
+            </div>
+            <p class="text-2xl font-bold text-gray-900">Sim</p>
+            <p class="text-sm text-gray-500 mt-0.5">Progresso Salvo</p>
+        </div>
+        <div class="border border-gray-100 rounded-xl p-4 text-center">
+            <div class="flex items-center justify-center text-brand-600 mb-1">
+                <i data-lucide="infinity" class="w-6 h-6"></i>
+            </div>
+            <p class="text-2xl font-bold text-gray-900">Ilimitado</p>
+            <p class="text-sm text-gray-500 mt-0.5">Pode Refazer</p>
+        </div>
+    </div>
+
+    <div class="mt-10">
+        <a href="/"
+           class="text-sm font-medium text-gray-500 hover:text-brand-600 transition-colors inline-flex items-center gap-1.5">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Voltar ao Inicio
+        </a>
+    </div>
+</section>
+
+{% endblock %}
